@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import { LAWYERS } from '@/data/content';
-import { assetPath } from '@/lib/asset-path';
+import { LawyerCard } from '@/components/lp/inheritance/LawyerCard';
 
 export function LawyersSection() {
   return (
@@ -20,15 +19,7 @@ export function LawyersSection() {
         </div>
         <div className="lawyer-grid">
           {LAWYERS.map(lawyer => (
-            <article key={lawyer.name} className="lawyer-card reveal">
-              <div className="lawyer-photo">
-                <img src={assetPath(lawyer.image)} alt={lawyer.name} />
-              </div>
-              <div className="lawyer-info">
-                <div className="lawyer-name">{lawyer.name}</div>
-                <p>{lawyer.bio}</p>
-              </div>
-            </article>
+            <LawyerCard key={lawyer.name} lawyer={lawyer} />
           ))}
         </div>
         <div className="team-note reveal">

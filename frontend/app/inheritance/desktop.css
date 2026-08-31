@@ -517,12 +517,15 @@ textarea:focus {
   overflow: hidden;
   border: 1px solid var(--line);
   transition: 0.3s ease;
+  cursor: pointer;
 }
-.lawyer-card:hover {
+.lawyer-card:hover,
+.lawyer-card.is-open {
   transform: translateY(-7px);
   box-shadow: 0 26px 70px rgba(5, 28, 60, 0.12);
 }
 .lawyer-photo {
+  position: relative;
   height: 355px;
   background: linear-gradient(160deg, #eef0f1, #d8dcdf);
   display: flex;
@@ -535,9 +538,58 @@ textarea:focus {
   width: 100%;
   object-fit: contain;
   object-position: center bottom;
+  transition: 0.25s ease;
+}
+.lawyer-career {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 22px 20px;
+  background: rgba(6, 28, 60, 0.92);
+  color: #c9d3dd;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  overflow-y: auto;
+  pointer-events: none;
+}
+.lawyer-career ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.lawyer-career li {
+  font-size: 14px;
+  line-height: 1.45;
+  padding-left: 12px;
+  position: relative;
+}
+.lawyer-career li:before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--champagne2);
+  font-weight: 900;
+}
+.lawyer-card.is-open .lawyer-career {
+  opacity: 1;
+}
+@media (hover: hover) {
+  .lawyer-card:hover .lawyer-career {
+    opacity: 1;
+  }
 }
 .lawyer-info {
   padding: 10px 20px;
+}
+.lawyer-role {
+  font-size: 11px;
+  color: var(--champagne);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
 }
 .lawyer-name {
   font-size: 24px;
