@@ -6,7 +6,6 @@ import { assetPath } from '@/lib/asset-path';
 
 type Lawyer = {
   image: string;
-  role: string;
   name: string;
   bio: string;
   career: readonly string[];
