@@ -1,0 +1,28 @@
+@media (max-width: 1080px) {
+  .navlinks {
+    display: none;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr 0.8fr;
+  }
+  .hero-lawyer {
+    height: 680px;
+  }
+  .hero-lawyer img {
+    height: 500px;
+  }
+  .quote-grid,
+  .lawyer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .process-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px 12px;
+  }
+  .process-step:nth-child(3):after {
+    display: none;
+  }
+  .value-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

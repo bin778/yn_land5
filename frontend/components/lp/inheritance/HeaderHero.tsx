@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 import { TrackedCta } from '@/components/common/TrackedCta';
 import { assetPath } from '@/lib/asset-path';
 import { KAKAO_CHAT_URL, PHONE_DISPLAY, PHONE_TEL, YEOON_HOME_URL } from '@/lib/constants';
-import { useConsultModal } from '@/lib/consult-modal-context';
-import { trackEvent } from '@/lib/analytics';
 
 const NAV_LINKS = [
   { href: '#story', label: '상속 이야기' },
@@ -17,7 +15,6 @@ const NAV_LINKS = [
 ] as const;
 
 export function Header() {
-  const { openConsultModal } = useConsultModal();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,11 +23,6 @@ export function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  function handleConsultClick() {
-    trackEvent({ category: 'CTA', action: 'cta_click', label: 'header' });
-    openConsultModal();
-  }
 
   return (
     <header id="header" className={scrolled ? 'scrolled' : undefined}>
@@ -49,9 +41,9 @@ export function Header() {
           <TrackedCta href={`tel:${PHONE_TEL}`} className="phone-mini" trackSource="header-phone">
             {PHONE_DISPLAY}
           </TrackedCta>
-          <button type="button" className="btn btn-primary open-consult" onClick={handleConsultClick}>
-            상속 상담하기 →
-          </button>
+          <TrackedCta href={`tel:${PHONE_TEL}`} className="btn btn-primary" trackSource="header-phone-cta">
+            24시 전화 상담 →
+          </TrackedCta>
         </div>
       </div>
     </header>
@@ -59,18 +51,11 @@ export function Header() {
 }
 
 export function HeroSection() {
-  const { openConsultModal } = useConsultModal();
-
-  function handleConsultClick() {
-    trackEvent({ category: 'CTA', action: 'cta_click', label: 'hero' });
-    openConsultModal();
-  }
-
   return (
     <section className="hero">
       <div className="wrap hero-grid">
         <div className="hero-copy reveal">
-          <div className="kicker">Inheritance · Law Firm Yeon</div>
+          <div className="kicker">Inheritance</div>
           <h1>
             상속은 재산보다 먼저,
             <br />
@@ -81,11 +66,8 @@ export function HeroSection() {
             확인해야 하는지부터 정리해야 합니다.
           </p>
           <div className="hero-actions">
-            <button type="button" className="btn btn-primary btn-lg open-consult" onClick={handleConsultClick}>
-              내 상속 문제 상담하기 →
-            </button>
             <TrackedCta className="btn btn-ghost btn-lg" href={`tel:${PHONE_TEL}`} trackSource="hero-phone">
-              전화 상담
+              24시 전화 상담
             </TrackedCta>
             <TrackedCta
               className="btn btn-ghost btn-lg"
@@ -95,7 +77,7 @@ export function HeroSection() {
               trackSource="hero-kakao"
               trackChannel="kakao"
             >
-              카카오 상담
+              카카오톡 상담
             </TrackedCta>
           </div>
           <div className="hero-sub">

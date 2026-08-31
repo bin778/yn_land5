@@ -21,7 +21,7 @@ export function FaqSection() {
           {FAQ_ITEMS.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <div key={item.q} className={`faq-item reveal${isOpen ? ' open' : ''}`}>
+              <div key={item.q} className={`faq-item${isOpen ? ' open' : ''}`}>
                 <button
                   type="button"
                   className="faq-q"

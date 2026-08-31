@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 
-@import './inheritance.css';
+@import './inheritance/base.css';
+@import './inheritance/desktop.css';
+@import './inheritance/tablet.css';
+@import './inheritance/mobile.css';
 
 .grecaptcha-badge {
   visibility: hidden !important;

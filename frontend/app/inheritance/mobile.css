@@ -1,0 +1,98 @@
+@media (max-width: 780px) {
+  .wrap {
+    width: min(calc(100% - 28px), var(--max));
+  }
+  .section {
+    padding: 78px 0;
+  }
+  .section-sm {
+    padding: 58px 0;
+  }
+  .nav {
+    height: 66px;
+  }
+  .logo {
+    width: 145px;
+  }
+  .phone-mini {
+    display: none;
+  }
+  .nav-actions .btn {
+    padding: 0 14px;
+  }
+  .hero {
+    min-height: auto;
+    padding-top: 66px;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .hero-copy {
+    padding: 70px 0 10px;
+  }
+  .hero h1 {
+    font-size: 47px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+  }
+  .hero-lawyer {
+    height: 540px;
+    margin-top: -20px;
+  }
+  .hero-lawyer img {
+    height: 535px;
+  }
+  .hero-card {
+    left: 0;
+    bottom: 30px;
+    width: 100%;
+  }
+  .story-marker {
+    display: none;
+  }
+  .quote-grid,
+  .problem-grid,
+  .lawyer-grid,
+  .value-grid {
+    grid-template-columns: 1fr;
+  }
+  .quote-card {
+    min-height: auto;
+  }
+  .consult-box {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .form-panel {
+    padding: 23px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .process-step:nth-child(odd):after {
+    display: block;
+  }
+  .process-step:nth-child(even):after {
+    display: none;
+  }
+  .lawyer-photo {
+    height: 390px;
+  }
+  .final-grid {
+    grid-template-columns: 1fr;
+  }
+  .final-actions {
+    justify-content: flex-start;
+  }
+  .final-actions .btn {
+    width: 100%;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

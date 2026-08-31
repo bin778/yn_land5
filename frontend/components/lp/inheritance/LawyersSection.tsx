@@ -25,7 +25,6 @@ export function LawyersSection() {
                 <img src={assetPath(lawyer.image)} alt={lawyer.name} />
               </div>
               <div className="lawyer-info">
-                <div className="lawyer-role">{lawyer.role}</div>
                 <div className="lawyer-name">{lawyer.name}</div>
                 <p>{lawyer.bio}</p>
               </div>
