@@ -10,7 +10,6 @@
 }
 
 .recaptcha-notice {
-  margin-top: 10px;
   font-size: 10px;
   color: #798494;
   line-height: 1.5;
@@ -18,4 +17,10 @@
 
 .recaptcha-notice a {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .recaptcha-notice {
+    font-size: 8px;
+  }
 }

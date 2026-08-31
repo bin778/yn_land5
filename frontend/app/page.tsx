@@ -7,6 +7,7 @@ import { Header, HeroSection } from '@/components/lp/inheritance/HeaderHero';
 import { LawyersSection } from '@/components/lp/inheritance/LawyersSection';
 import { ProcessSection, ValueSection } from '@/components/lp/inheritance/ProcessValueSections';
 import { ProblemSection, StoryIntroSection } from '@/components/lp/inheritance/StorySections';
+import { StickyConsultBar } from '@/components/lp/inheritance/StickyConsultBar';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <FinalCtaSection />
       </main>
       <SiteFooter />
+      <StickyConsultBar />
     </LazyReCaptchaProvider>
   );
 }

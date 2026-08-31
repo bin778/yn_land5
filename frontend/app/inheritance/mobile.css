@@ -95,4 +95,24 @@
   .footer-grid {
     grid-template-columns: 1fr;
   }
+  footer {
+    padding-bottom: 240px;
+  }
+  .sticky-consult-inner {
+    width: min(calc(100% - 28px), 640px);
+  }
+  .sticky-consult-quick {
+    display: grid;
+  }
+  .sticky-consult-row {
+    gap: 8px;
+  }
+  .sticky-consult-inputs input {
+    min-height: 42px;
+    font-size: 13px;
+  }
+  .sticky-consult-submit {
+    flex-basis: 96px;
+    font-size: 13px;
+  }
 }

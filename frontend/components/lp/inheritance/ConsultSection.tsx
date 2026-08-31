@@ -1,59 +1,22 @@
 'use client';
 
-import { useEffect, useRef, useState, type FormEvent } from 'react';
 import Link from 'next/link';
-import { useLazyReCaptcha } from '@/components/common/lazyReCaptchaContext';
+import { type FormEvent } from 'react';
 import { ASSET_OPTIONS, MATTER_OPTIONS, TRUST_ROWS } from '@/data/content';
-import { trackConsultSuccess, trackEvent } from '@/lib/analytics';
-import { PRIVACY_URL, LP_SLUG } from '@/lib/constants';
-import { composeSituation, isBlockedName, isValidName, normalizeName } from '@/lib/form';
-import { getStoredGclid } from '@/lib/gclid';
-import { getLandingInflowLabel } from '@/lib/inflow';
-import { isValidMobilePhone, MOBILE_PHONE_ERROR_MESSAGE, normalizePhone } from '@/lib/phone';
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'https://www.yeoon.co.kr/criminal/api';
+import { PRIVACY_URL } from '@/lib/constants';
+import { composeSituation, normalizeName } from '@/lib/form';
+import { normalizePhone } from '@/lib/phone';
+import { useConsultSubmit } from '@/lib/useConsultSubmit';
 
 export function ConsultSection() {
-  const { activate, executeRecaptcha } = useLazyReCaptcha();
-  const [status, setStatus] = useState('');
-  const [showStatus, setShowStatus] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const hasTrackedFormStartRef = useRef(false);
-  const executeRef = useRef(executeRecaptcha);
+  const { isSubmitting, status, showStatus, handleFormInteraction, submit } = useConsultSubmit({
+    formLabel: 'inheritance',
+  });
 
-  useEffect(() => {
-    executeRef.current = executeRecaptcha;
-  }, [executeRecaptcha]);
-
-  function handleFormInteraction() {
-    activate();
-
-    if (!hasTrackedFormStartRef.current) {
-      hasTrackedFormStartRef.current = true;
-      trackEvent({
-        category: 'Engagement',
-        action: 'lead_form_start',
-        label: 'inheritance',
-      });
-    }
-  }
-
-  async function waitForExecuteRecaptcha(maxAttempts = 40) {
-    activate();
-    for (let i = 0; i < maxAttempts; i++) {
-      if (executeRef.current) return executeRef.current;
-      await new Promise(r => setTimeout(r, 100));
-    }
-    return undefined;
-  }
-
-  async function submitConsult(formData: FormData) {
-    const execute = await waitForExecuteRecaptcha();
-
-    if (!execute) {
-      alert('보안 모듈이 아직 로드되지 않았습니다. 잠시 후 다시 시도해주세요.');
-      return;
-    }
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     const name = normalizeName(String(formData.get('name') ?? ''));
     const tel = normalizePhone(String(formData.get('phone') ?? ''));
@@ -65,103 +28,12 @@ export function ConsultSection() {
       summary: String(formData.get('summary') ?? ''),
     });
 
-    setIsSubmitting(true);
-    setShowStatus(false);
-
-    try {
-      const recaptchaToken = await execute('submit_consult');
-
-      const response = await fetch(`${API_BASE_URL}/submit_form.php`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          tel,
-          page: LP_SLUG,
-          situation,
-          recaptcha_token: recaptchaToken,
-          gclid: getStoredGclid(),
-          inflow: getLandingInflowLabel(),
-        }),
-      });
-
-      const data = (await response.json()) as { result?: string; msg?: string };
-
-      if (data.result === 'success') {
-        const successMessage = '상담 접수가 완료되었습니다.';
-        trackConsultSuccess(successMessage);
-        trackEvent({
-          category: 'Conversion',
-          action: 'lead_form_success',
-          label: 'inheritance',
-        });
-
-        if (typeof window.fbq === 'function') {
-          window.fbq('track', 'Lead');
-        }
-
-        alert(`${successMessage}\n담당 변호사가 확인 후 곧 연락드리겠습니다.`);
-        const form = document.getElementById('inheritanceForm') as HTMLFormElement | null;
-        form?.reset();
-        setStatus('');
-        setShowStatus(false);
-        hasTrackedFormStartRef.current = false;
-      } else {
-        setStatus(data.msg || '오류가 발생했습니다.');
-        setShowStatus(true);
-        trackEvent({
-          category: 'Conversion',
-          action: 'lead_form_error',
-          label: 'inheritance',
-        });
-      }
-    } catch (error) {
-      console.error(error);
-      setStatus('접수 중 오류가 발생했습니다. 02-318-2981 또는 카카오톡 상담을 이용해 주세요.');
-      setShowStatus(true);
-      trackEvent({
-        category: 'Conversion',
-        action: 'lead_form_error',
-        label: 'inheritance',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    const name = normalizeName(String(formData.get('name') ?? ''));
-    const tel = normalizePhone(String(formData.get('phone') ?? ''));
-
-    if (!isValidName(name)) {
-      alert('성함은 한글·영문 2~15자로 입력해주세요.');
-      trackEvent({ category: 'Conversion', action: 'lead_form_validation_error', label: 'inheritance' });
-      return;
-    }
-
-    if (isBlockedName(name)) {
-      alert('올바른 성함을 입력해주세요.');
-      trackEvent({ category: 'Conversion', action: 'lead_form_validation_error', label: 'inheritance' });
-      return;
-    }
-
-    if (!isValidMobilePhone(tel)) {
-      alert(MOBILE_PHONE_ERROR_MESSAGE);
-      trackEvent({ category: 'Conversion', action: 'lead_form_validation_error', label: 'inheritance' });
-      return;
-    }
-
-    trackEvent({
-      category: 'Conversion',
-      action: 'lead_form_submit',
-      label: 'inheritance',
+    void submit(name, tel, {
+      situation,
+      onSuccess: () => {
+        form.reset();
+      },
     });
-
-    void submitConsult(formData);
   }
 
   return (
