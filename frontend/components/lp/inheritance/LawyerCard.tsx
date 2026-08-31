@@ -51,7 +51,6 @@ export function LawyerCard({ lawyer }: LawyerCardProps) {
         </div>
       </div>
       <div className="lawyer-info">
-        <div className="lawyer-role">{lawyer.role}</div>
         <div className="lawyer-name">{lawyer.name}</div>
         <p>{lawyer.bio}</p>
       </div>

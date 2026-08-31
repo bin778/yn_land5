@@ -85,7 +85,6 @@ export const VALUE_CARDS = [
 export const LAWYERS = [
   {
     image: '/image/lawyer-yoo.webp',
-    role: '대표변호사',
     name: '유영규 변호사',
     bio: '상담 단계부터 전체 재산관계와 주요 쟁점을 함께 정리합니다.',
     career: [
@@ -98,7 +97,6 @@ export const LAWYERS = [
   },
   {
     image: '/image/lawyer-kim-hwan.webp',
-    role: 'LAWYER · YEON',
     name: '김환섭 변호사',
     bio: '복잡하게 얽힌 사실관계를 법적 쟁점의 순서로 정리합니다.',
     career: [
@@ -111,7 +109,6 @@ export const LAWYERS = [
   },
   {
     image: '/image/lawyer-hong.webp',
-    role: 'LAWYER · YEON',
     name: '홍기웅 변호사',
     bio: '상속재산분할과 공동상속인 사이의 분쟁 쟁점을 세밀하게 검토합니다.',
     career: [
@@ -124,7 +121,6 @@ export const LAWYERS = [
   },
   {
     image: '/image/lawyer-kim-sun.webp',
-    role: 'LAWYER · YEON',
     name: '김선호 변호사',
     bio: '사실관계와 자료를 바탕으로 현실적인 대응 방향을 함께 찾습니다.',
     career: ['충남대학교 법학전문대학원 졸업', '법무법인 여온 소속변호사'],
