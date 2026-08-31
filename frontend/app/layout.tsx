@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Noto_Serif_KR } from 'next/font/google';
+import { AnalyticsBootstrap } from '@/components/analytics/AnalyticsBootstrap';
 import { RevealInit } from '@/components/RevealInit';
 import { ConsultModalProvider } from '@/lib/consult-modal-context';
 import { assetPath } from '@/lib/asset-path';
+import { GTM_HEAD_SNIPPET, GTM_ID } from '@/lib/gtm';
 import { DEPLOY_URL } from '../deploy.config';
 import './globals.css';
 
@@ -42,12 +44,23 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ko" className={notoSerif.variable}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: GTM_HEAD_SNIPPET }} />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
         />
       </head>
       <body>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+            title="Google Tag Manager"
+          />
+        </noscript>
+        <AnalyticsBootstrap />
         <RevealInit />
         <ConsultModalProvider>{children}</ConsultModalProvider>
       </body>

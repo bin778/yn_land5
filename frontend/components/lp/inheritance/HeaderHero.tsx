@@ -2,9 +2,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { TrackedCta } from '@/components/common/TrackedCta';
 import { assetPath } from '@/lib/asset-path';
 import { KAKAO_CHAT_URL, PHONE_DISPLAY, PHONE_TEL, YEOON_HOME_URL } from '@/lib/constants';
 import { useConsultModal } from '@/lib/consult-modal-context';
+import { trackEvent } from '@/lib/analytics';
 
 const NAV_LINKS = [
   { href: '#story', label: '상속 이야기' },
@@ -25,6 +27,11 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  function handleConsultClick() {
+    trackEvent({ category: 'CTA', action: 'cta_click', label: 'header' });
+    openConsultModal();
+  }
+
   return (
     <header id="header" className={scrolled ? 'scrolled' : undefined}>
       <div className="wrap nav">
@@ -39,10 +46,10 @@ export function Header() {
           ))}
         </nav>
         <div className="nav-actions">
-          <a href={`tel:${PHONE_TEL}`} className="phone-mini">
+          <TrackedCta href={`tel:${PHONE_TEL}`} className="phone-mini" trackSource="header-phone">
             {PHONE_DISPLAY}
-          </a>
-          <button type="button" className="btn btn-primary open-consult" onClick={openConsultModal}>
+          </TrackedCta>
+          <button type="button" className="btn btn-primary open-consult" onClick={handleConsultClick}>
             상속 상담하기 →
           </button>
         </div>
@@ -53,6 +60,11 @@ export function Header() {
 
 export function HeroSection() {
   const { openConsultModal } = useConsultModal();
+
+  function handleConsultClick() {
+    trackEvent({ category: 'CTA', action: 'cta_click', label: 'hero' });
+    openConsultModal();
+  }
 
   return (
     <section className="hero">
@@ -69,15 +81,22 @@ export function HeroSection() {
             확인해야 하는지부터 정리해야 합니다.
           </p>
           <div className="hero-actions">
-            <button type="button" className="btn btn-primary btn-lg open-consult" onClick={openConsultModal}>
+            <button type="button" className="btn btn-primary btn-lg open-consult" onClick={handleConsultClick}>
               내 상속 문제 상담하기 →
             </button>
-            <a className="btn btn-ghost btn-lg" href={`tel:${PHONE_TEL}`}>
+            <TrackedCta className="btn btn-ghost btn-lg" href={`tel:${PHONE_TEL}`} trackSource="hero-phone">
               전화 상담
-            </a>
-            <a className="btn btn-ghost btn-lg" href={KAKAO_CHAT_URL} target="_blank" rel="noopener noreferrer">
+            </TrackedCta>
+            <TrackedCta
+              className="btn btn-ghost btn-lg"
+              href={KAKAO_CHAT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              trackSource="hero-kakao"
+              trackChannel="kakao"
+            >
               카카오 상담
-            </a>
+            </TrackedCta>
           </div>
           <div className="hero-sub">
             <span>

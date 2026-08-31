@@ -1,6 +1,8 @@
 'use client';
 
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react';
+import { TrackedCta } from '@/components/common/TrackedCta';
+import { PHONE_TEL } from '@/lib/constants';
 
 type ConsultModalContextValue = {
   openConsultModal: () => void;
@@ -59,9 +61,14 @@ export function ConsultModalProvider({ children }: { children: ReactNode }) {
             상담 정보 입력하기 →
           </button>
           <div style={{ height: 10 }} />
-          <a className="btn btn-light btn-lg" style={{ width: '100%' }} href="tel:023182981">
+          <TrackedCta
+            className="btn btn-light btn-lg"
+            style={{ width: '100%' }}
+            href={`tel:${PHONE_TEL}`}
+            trackSource="modal-phone"
+          >
             지금 전화하기
-          </a>
+          </TrackedCta>
         </div>
       </div>
     </ConsultModalContext.Provider>

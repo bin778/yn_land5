@@ -1,3 +1,4 @@
+import { LazyReCaptchaProvider } from '@/components/common/LazyReCaptchaProvider';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { ConsultSection } from '@/components/lp/inheritance/ConsultSection';
 import { FaqSection } from '@/components/lp/inheritance/FaqSection';
@@ -9,7 +10,7 @@ import { ProblemSection, StoryIntroSection } from '@/components/lp/inheritance/S
 
 export default function Home() {
   return (
-    <>
+    <LazyReCaptchaProvider>
       <Header />
       <main>
         <HeroSection />
@@ -24,6 +25,6 @@ export default function Home() {
       </main>
       <SiteFooter />
       <MobileDock />
-    </>
+    </LazyReCaptchaProvider>
   );
 }
