@@ -1,4 +1,6 @@
 import { PROCESS_STEPS, SOLUTIONS, VALUE_CARDS } from '@/data/content';
+import { ProcessStepCard, ProcessStepsCarousel } from './ProcessStepsCarousel';
+import { ValueCardContent, ValueCardsCarousel } from './ValueCardsCarousel';
 
 export function ProcessSection() {
   return (
@@ -18,12 +20,7 @@ export function ProcessSection() {
 
         <div className="protection-method-grid">
           <div className="protection-core">
-            <span>PROTECT FIRST</span>
-            <strong>
-              권리를 먼저
-              <br />
-              보호합니다.
-            </strong>
+            <strong>권리를 먼저 보호합니다.</strong>
             <p>
               그 다음 협의, 조정, 심판, 소송 중 현재 사건에 맞는 방법을 선택합니다. 가족관계를 불필요하게 더 악화시키지
               않을 수 있다면, 그것 역시 좋은 해결의 일부라고 생각합니다.
@@ -40,15 +37,12 @@ export function ProcessSection() {
           </div>
         </div>
 
-        <div className="process-grid protection-process">
+        <div className="process-grid protection-process process-grid--static">
           {PROCESS_STEPS.map(step => (
-            <div key={step.title} className="process-step">
-              <div className="process-icon">{step.icon}</div>
-              <strong>{step.title}</strong>
-              <span>{step.desc}</span>
-            </div>
+            <ProcessStepCard key={step.title} step={step} />
           ))}
         </div>
+        <ProcessStepsCarousel />
       </div>
     </section>
   );
@@ -60,19 +54,18 @@ export function ValueSection() {
       <div className="wrap">
         <div className="center">
           <div className="kicker">What Must Be Checked</div>
-          <h2>상속분쟁에서 권리를 지키려면</h2>
-          <h2>네 가지를 먼저 확인해야 합니다.</h2>
-          <p className="lead">무엇을 주장할지보다 먼저, 어떤 재산과 사실이 내 권리에 영향을 주는지 확인합니다.</p>
+          <h2>권리를 지키려면</h2>
+          <h2>네 가지를 먼저 확인해야 합니다</h2>
+          <p className="lead">무엇을 주장할지보다 먼저, 어떤 재산과 사실이 내 권리에 영향을 주는지 확인합니다</p>
         </div>
-        <div className="value-grid">
+        <div className="value-grid value-grid--static">
           {VALUE_CARDS.map(card => (
             <article key={card.num} className="value-card glass">
-              <div className="num">{card.num}</div>
-              <h3>{card.title}</h3>
-              <p>{card.body}</p>
+              <ValueCardContent card={card} />
             </article>
           ))}
         </div>
+        <ValueCardsCarousel />
       </div>
     </section>
   );

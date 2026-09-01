@@ -11,17 +11,17 @@ export function StoryIntroSection() {
           <h2>
             같은 가족이어도,
             <br />
-            상속이 시작되면 생각은 달라집니다.
+            상속이 시작되면 생각은 달라집니다
           </h2>
           <p className="lead">부모님이 남긴 재산, 그것을 바라보는 가족들의 기억과 기준은 같지 않습니다.</p>
         </div>
         <QuoteCarousel />
         <blockquote className="story-highlight">
           <p className="story-highlight-quote">
-            “상속에 있어 추억은 <br /> 숫자로 계산됩니다.”
+            “상속에 있어 추억은 <br /> 숫자로 계산됩니다”
           </p>
           <p className="story-highlight-body">
-            누가 부모님을 얼마나 돌봤는지, 누가 생전에 무엇을 받았는지, 누구에게 어떤 약속이 있었는지. 가족에게는
+            누가 부모님을 얼마나 돌봤는지, 누가 생전에 무엇을 받았는지, 누구에게 어떤 약속이 있었는지, 가족에게는
             기억이지만 상속분쟁에서는 결국 자료와 법적 기준으로 확인됩니다.
           </p>
         </blockquote>
@@ -71,8 +71,7 @@ export function TimeProtectionSection() {
 
         <div className="time-protection-grid">
           <div className="time-panel">
-            <div className="time-number">03</div>
-            <h3>시간은 상속분쟁의 중요한 변수입니다.</h3>
+            <h3>시간은 상속분쟁의 중요한 변수입니다</h3>
             <p>
               상속포기·한정승인처럼 법에서 정한 기간을 확인해야 하는 절차가 있고, 시간이 오래 지나면
               계좌내역·증여자료·가족 간 대화 등 사실관계를 확인할 자료를 확보하기 어려워질 수 있습니다.

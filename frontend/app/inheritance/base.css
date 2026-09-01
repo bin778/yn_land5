@@ -61,7 +61,7 @@ img {
   margin: auto;
 }
 .section {
-  padding: 112px 0;
+  padding: 78px 0;
 }
 .section-sm {
   padding: 78px 0;
@@ -99,9 +99,9 @@ h1 {
 }
 h2 {
   font-family: var(--font-noto-serif-kr), 'Iowan Old Style', 'Times New Roman', 'Noto Serif KR', serif;
-  font-size: clamp(32px, 4.6vw, 58px);
-  line-height: 1.18;
-  letter-spacing: -0.045em;
+  font-size: clamp(26px, 4vw, 56px);
+  line-height: 1.15;
+  letter-spacing: -0.1em;
   font-weight: 500;
   margin-bottom: 10px;
 }

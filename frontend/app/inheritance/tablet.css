@@ -15,15 +15,25 @@
   .hero-lawyer img {
     height: 500px;
   }
-  .lawyer-grid,
+  .quote-carousel {
+    margin-top: 33px;
+  }
   .protection-method-grid {
     grid-template-columns: 1fr;
   }
-  .process-grid {
+  .lawyer-grid--static {
+    display: none;
+  }
+  .lawyer-carousel {
+    display: block;
+    position: relative;
+    margin-top: 44px;
+  }
+  .process-grid--static {
     grid-template-columns: repeat(3, 1fr);
     gap: 34px 12px;
   }
-  .process-step:nth-child(3):after {
+  .process-grid--static .process-step:nth-child(3):after {
     display: none;
   }
   .value-grid {
@@ -35,7 +45,8 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .quote-grid {
+  .quote-grid,
+  .lawyer-grid--carousel {
     display: flex;
     gap: 12px;
     overflow-x: auto;
@@ -45,24 +56,33 @@
     overscroll-behavior-x: contain;
     padding: 4px 36px;
     margin: 0 -4px;
+    grid-template-columns: unset;
+  }
+
+  .quote-grid::-webkit-scrollbar,
+  .lawyer-grid--carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .quote-slide,
+  .lawyer-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .quote-slide .quote-card {
+    min-height: 150px;
   }
 
   .quote-card p {
     margin: 24px 0 6px;
   }
 
-  .quote-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .quote-card {
-    flex: 0 0 calc(50% - 6px);
-    scroll-snap-align: start;
-    min-height: auto;
-    padding-bottom: 1px;
-  }
-
-  .quote-nav {
+  .quote-nav,
+  .lawyer-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -79,22 +99,27 @@
     cursor: pointer;
   }
 
-  .quote-nav svg {
+  .quote-nav svg,
+  .lawyer-nav svg {
     width: 18px;
     height: 18px;
   }
 
-  .quote-nav--prev {
+  .quote-nav--prev,
+  .lawyer-nav--prev {
     left: 0;
   }
 
-  .quote-nav--next {
+  .quote-nav--next,
+  .lawyer-nav--next {
     right: 0;
   }
 
-  .quote-nav:disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    cursor: default;
+  .lawyer-slide .lawyer-photo {
+    height: 280px;
+  }
+
+  .lawyer-slide .lawyer-name {
+    font-size: 18px;
   }
 }

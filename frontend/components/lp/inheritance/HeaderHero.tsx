@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import { TrackedCta } from '@/components/common/TrackedCta';
 import { assetPath } from '@/lib/asset-path';
-import { KAKAO_CHAT_URL, PHONE_DISPLAY, PHONE_TEL, YEOON_HOME_URL } from '@/lib/constants';
+import { PHONE_DISPLAY, PHONE_TEL, YEOON_HOME_URL } from '@/lib/constants';
 
 const NAV_LINKS = [
   { href: '#story', label: '상속 이야기' },
@@ -65,21 +65,6 @@ export function HeroSection() {
           <p className="lead">
             같은 가족이어도 상속이 시작되는 순간 <br /> 재산을 바라보는 기준은 달라집니다.
           </p>
-          <div className="hero-actions">
-            <TrackedCta className="btn btn-ghost btn-lg" href={`tel:${PHONE_TEL}`} trackSource="hero-phone">
-              24시 전화 상담
-            </TrackedCta>
-            <TrackedCta
-              className="btn btn-ghost btn-lg"
-              href={KAKAO_CHAT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              trackSource="hero-kakao"
-              trackChannel="kakao"
-            >
-              카카오톡 상담
-            </TrackedCta>
-          </div>
           <div className="hero-sub">
             <span>
               <i /> 변호사 직접 상담
@@ -97,7 +82,7 @@ export function HeroSection() {
           <div className="hero-card glass">
             <div className="role">법무법인 여온 대표변호사</div>
             <div className="name">유영규 변호사</div>
-            <p>의뢰인의 권리를 먼저 확인하고, 그 권리를 바탕으로 가장 합리적인 해결 방법을 찾습니다.</p>
+            <p>의뢰인의 권리를 먼저 확인하고, 그 권리를 바탕으로 가장 합리적인 해결 방법을 찾습니다</p>
           </div>
         </div>
       </div>

@@ -56,7 +56,7 @@ export function ConsultModalProvider({ children }: { children: ReactNode }) {
             ×
           </button>
           <h2 style={{ fontSize: 34, marginBottom: 10 }}>상속 문제 상담</h2>
-          <p style={{ color: 'var(--muted)', marginBottom: 22 }}>상담폼으로 이동해 현재 알고 있는 내용만 남겨주세요.</p>
+          <p style={{ color: 'var(--muted)', marginBottom: 22 }}>상담폼으로 이동해 현재 알고 있는 내용만 남겨주세요</p>
           <button type="button" className="btn btn-navy btn-lg" style={{ width: '100%' }} onClick={scrollToConsultForm}>
             상담 정보 입력하기 →
           </button>

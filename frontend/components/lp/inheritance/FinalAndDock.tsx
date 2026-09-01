@@ -11,7 +11,7 @@ export function FinalCtaSection() {
           <div className="kicker">Contact Yeoon</div>
           <h2>
             가족과 더 크게 다투기 전에, <br />
-            지켜야 할 권리부터 확인하세요.
+            지켜야 할 권리부터 확인하세요
           </h2>
           <p className="lead">
             상속분쟁의 답이 반드시 소송일 필요는 없습니다. 그러나 합리적인 해결도 내 권리가 무엇인지 정확히 알고 있을 때

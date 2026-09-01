@@ -6,7 +6,7 @@
     width: min(calc(100% - 28px), var(--max));
   }
   .section {
-    padding: 78px 0;
+    padding: 38px 0;
   }
   .section-sm {
     padding: 58px 0;
@@ -90,7 +90,7 @@
     min-height: auto;
   }
   .quote-carousel {
-    margin-top: 44px;
+    margin-top: 22px;
   }
   .quote-grid {
     display: flex;
@@ -106,16 +106,21 @@
   .quote-grid::-webkit-scrollbar {
     display: none;
   }
-  .quote-card {
-    flex: 0 0 calc(100% - 5px);
+  .quote-slide {
+    flex: 0 0 calc(100% - 10px);
     scroll-snap-align: center;
+  }
+  .quote-slide .quote-card {
     min-height: auto;
   }
   .quote-card p {
     margin: 24px 0 6px;
   }
   .quote-nav,
-  .problem-nav {
+  .problem-nav,
+  .process-nav,
+  .value-nav,
+  .lawyer-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -132,23 +137,90 @@
     cursor: pointer;
   }
   .quote-nav svg,
-  .problem-nav svg {
+  .problem-nav svg,
+  .process-nav svg,
+  .value-nav svg,
+  .lawyer-nav svg {
     width: 18px;
     height: 18px;
   }
   .quote-nav--prev,
-  .problem-nav--prev {
+  .problem-nav--prev,
+  .process-nav--prev,
+  .value-nav--prev,
+  .lawyer-nav--prev {
     left: 0;
   }
   .quote-nav--next,
-  .problem-nav--next {
+  .problem-nav--next,
+  .process-nav--next,
+  .value-nav--next,
+  .lawyer-nav--next {
     right: 0;
   }
-  .quote-nav:disabled,
-  .problem-nav:disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    cursor: default;
+  .lawyer-grid--static {
+    display: none;
+  }
+  .lawyer-carousel {
+    display: block;
+    position: relative;
+    margin-top: 44px;
+  }
+  .lawyer-grid--carousel {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    padding: 4px 36px;
+    margin: 0 -4px;
+    grid-template-columns: unset;
+  }
+  .lawyer-grid--carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .lawyer-slide {
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: center;
+  }
+  .lawyer-slide .lawyer-photo {
+    height: min(320px, 42dvh);
+  }
+  .lawyer-slide .lawyer-name {
+    font-size: 20px;
+  }
+  .lawyer-slide .lawyer-info p {
+    font-size: 13px;
+  }
+  .value-grid--static {
+    display: none;
+  }
+  .value-carousel {
+    display: block;
+    position: relative;
+    margin-top: 42px;
+  }
+  .value-grid--carousel {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    padding: 4px 36px;
+    margin: 0 -4px;
+    grid-template-columns: unset;
+  }
+  .value-grid--carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .value-grid--carousel .value-card {
+    flex: 0 0 calc(100% - 10px);
+    scroll-snap-align: center;
+    min-height: auto;
   }
   .story-highlight {
     padding: 24px 20px;
@@ -159,11 +231,16 @@
   .time-protection-grid {
     grid-template-columns: 1fr;
   }
+  .time-panel {
+    min-height: unset;
+    aspect-ratio: 1 / 1;
+  }
   .protection-method-grid {
     grid-template-columns: 1fr;
   }
   .protection-core {
-    min-height: 320px;
+    min-height: unset;
+    aspect-ratio: 1 / 1;
   }
   .protection-core strong {
     font-size: 28px;
@@ -180,7 +257,7 @@
   select {
     font-size: 14px;
     padding: 10px;
-    min-height: 42px;
+    min-height: 32px;
   }
   .form-panel {
     padding: 23px;
@@ -188,17 +265,55 @@
   .form-grid {
     grid-template-columns: 1fr;
   }
-  .process-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .process-step:nth-child(odd):after {
-    display: block;
-  }
-  .process-step:nth-child(even):after {
+  .process-grid--static {
     display: none;
   }
-  .lawyer-photo {
-    height: 390px;
+  .process-carousel {
+    display: block;
+    position: relative;
+  }
+  .process-grid--carousel {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    padding: 4px 18px;
+    margin: 0 -4px;
+    margin-top: 50px;
+    grid-template-columns: unset;
+  }
+  .process-grid--carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .process-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .process-slide .process-step:after {
+    display: none;
+  }
+  .process-slide .process-step:first-child:after {
+    display: block;
+  }
+  .protection-process.process-carousel {
+    margin-top: 64px;
+  }
+  .protection-process.process-carousel .process-grid--carousel {
+    margin-top: 0;
+  }
+  @media (max-width: 390px) {
+    .lawyer-slide .lawyer-photo {
+      height: min(260px, 38dvh);
+    }
+    .lawyer-slide .lawyer-name {
+      font-size: 18px;
+    }
   }
   .final-grid {
     grid-template-columns: 1fr;
@@ -215,21 +330,50 @@
   footer {
     padding-bottom: 240px;
   }
+  .sticky-consult {
+    padding: 6px 0;
+  }
   .sticky-consult-inner {
     width: min(calc(100% - 28px), 640px);
   }
   .sticky-consult-quick {
     display: grid;
+    margin-bottom: 6px;
   }
   .sticky-consult-row {
     gap: 8px;
   }
+  .sticky-consult-meta {
+    margin-top: 6px;
+  }
   .sticky-consult-inputs input {
-    min-height: 42px;
-    font-size: 13px;
+    min-height: 36px;
+    font-size: 14px;
   }
   .sticky-consult-submit {
     flex-basis: 96px;
+    font-size: 16px;
+  }
+  label {
+    font-size: 13px;
+  }
+  .qmark {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .faq-q {
+    padding: 10px 2px;
+  }
+
+  .faq-q .q {
+    gap: 4px;
+    font-size: 13px;
+  }
+
+  .faq-inner {
+    padding: 0 20px 10px;
     font-size: 13px;
   }
 }
