@@ -21,7 +21,7 @@ export function FaqSection() {
   return (
     <section className="section" id="faq">
       <div className="wrap">
-        <div className="center reveal">
+        <div className="center">
           <div className="kicker">FAQ</div>
           <h2>
             상담 전에 가장 많이
@@ -34,12 +34,7 @@ export function FaqSection() {
             const isOpen = openIndexes.has(index);
             return (
               <div key={item.q} className={`faq-item${isOpen ? ' open' : ''}`}>
-                <button
-                  type="button"
-                  className="faq-q"
-                  aria-expanded={isOpen}
-                  onClick={() => toggle(index)}
-                >
+                <button type="button" className="faq-q" aria-expanded={isOpen} onClick={() => toggle(index)}>
                   <span className="q">
                     <span className="qmark">Q</span>
                     {item.q}

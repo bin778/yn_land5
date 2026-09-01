@@ -5,8 +5,8 @@ export function LawyersSection() {
   return (
     <section className="section lawyers" id="lawyers">
       <div className="wrap">
-        <div className="center reveal">
-          <div className="kicker">Lawyers of Yeon</div>
+        <div className="center">
+          <div className="kicker">Lawyers of Yeoon</div>
           <h2>
             권리를 지키고,
             <br />그 이후까지 생각하는 변호사들입니다.
@@ -21,7 +21,7 @@ export function LawyersSection() {
             <LawyerCard key={lawyer.name} lawyer={lawyer} />
           ))}
         </div>
-        <div className="team-note reveal">
+        <div className="team-note">
           ※ 실제 사건 담당 변호사는 사건의 성격과 일정 등에 따라 달라질 수 있습니다.
         </div>
       </div>

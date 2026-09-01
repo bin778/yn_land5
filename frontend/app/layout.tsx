@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Noto_Serif_KR } from 'next/font/google';
 import { AnalyticsBootstrap } from '@/components/analytics/AnalyticsBootstrap';
-import { RevealInit } from '@/components/RevealInit';
 import { ConsultModalProvider } from '@/lib/consult-modal-context';
 import { assetPath } from '@/lib/asset-path';
 import { GTM_HEAD_SNIPPET, GTM_ID } from '@/lib/gtm';
@@ -61,7 +60,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           />
         </noscript>
         <AnalyticsBootstrap />
-        <RevealInit />
         <ConsultModalProvider>{children}</ConsultModalProvider>
       </body>
     </html>

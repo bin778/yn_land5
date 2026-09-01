@@ -54,18 +54,16 @@ export function HeroSection() {
   return (
     <section className="hero">
       <div className="wrap hero-grid">
-        <div className="hero-copy reveal">
-          <div className="kicker">Inheritance · Protection</div>
+        <div className="hero-copy">
           <h1>
             상속이 시작되면,
             <br />
             <span>
-              지켜야 할 것이 <br /> 생깁니다.
+              지켜야 할 것이 <br /> 생깁니다
             </span>
           </h1>
           <p className="lead">
-            같은 가족이어도 상속이 시작되는 순간 재산을 바라보는 기준은 달라집니다. 무엇을 받을 것인지보다 먼저, 무엇을
-            잃지 않아야 하는지 확인해야 합니다.
+            같은 가족이어도 상속이 시작되는 순간 <br /> 재산을 바라보는 기준은 달라집니다.
           </p>
           <div className="hero-actions">
             <TrackedCta className="btn btn-ghost btn-lg" href={`tel:${PHONE_TEL}`} trackSource="hero-phone">
@@ -94,7 +92,7 @@ export function HeroSection() {
             </span>
           </div>
         </div>
-        <div className="hero-lawyer reveal">
+        <div className="hero-lawyer">
           <img src={assetPath('/image/lawyer-yoo.webp')} alt="법무법인 여온 유영규 대표변호사" />
           <div className="hero-card glass">
             <div className="role">법무법인 여온 대표변호사</div>

@@ -4,21 +4,20 @@ export function ProcessSection() {
   return (
     <section className="section protection-method" id="process">
       <div className="wrap">
-        <div className="center reveal">
-          <div className="kicker">Yeon&apos;s Answer</div>
+        <div className="center">
           <h2>
-            여온은 “얼마를 더 받을까”보다
+            권리는 지키고,
             <br />
-            “무엇을 지켜야 할까”를 먼저 봅니다.
+            관계는 남을 수 있도록
           </h2>
           <p className="lead">
-            상속분쟁의 해결이 반드시 판결문이어야 하는 것은 아닙니다. 의뢰인의 권리를 충분히 보호하면서 가장 합리적으로
-            사건을 끝낼 수 있는 방법을 찾습니다.
+            상속분쟁의 해결이 반드시 판결문이어야 하는 것은 아닙니다. 의뢰인의 권리를 충분히 보호하면서 분쟁 이후에 가족
+            관계까지 고려한 해결을 찾습니다.
           </p>
         </div>
 
         <div className="protection-method-grid">
-          <div className="protection-core reveal">
+          <div className="protection-core">
             <span>PROTECT FIRST</span>
             <strong>
               권리를 먼저
@@ -33,7 +32,7 @@ export function ProcessSection() {
 
           <div className="solution-list">
             {SOLUTIONS.map(solution => (
-              <div key={solution.title} className="solution reveal">
+              <div key={solution.title} className="solution">
                 <b>{solution.title}</b>
                 <span>{solution.body}</span>
               </div>
@@ -43,7 +42,7 @@ export function ProcessSection() {
 
         <div className="process-grid protection-process">
           {PROCESS_STEPS.map(step => (
-            <div key={step.title} className="process-step reveal">
+            <div key={step.title} className="process-step">
               <div className="process-icon">{step.icon}</div>
               <strong>{step.title}</strong>
               <span>{step.desc}</span>
@@ -59,7 +58,7 @@ export function ValueSection() {
   return (
     <section className="section value-section">
       <div className="wrap">
-        <div className="center reveal">
+        <div className="center">
           <div className="kicker">What Must Be Checked</div>
           <h2>상속분쟁에서 권리를 지키려면</h2>
           <h2>네 가지를 먼저 확인해야 합니다.</h2>
@@ -67,7 +66,7 @@ export function ValueSection() {
         </div>
         <div className="value-grid">
           {VALUE_CARDS.map(card => (
-            <article key={card.num} className="value-card glass reveal">
+            <article key={card.num} className="value-card glass">
               <div className="num">{card.num}</div>
               <h3>{card.title}</h3>
               <p>{card.body}</p>

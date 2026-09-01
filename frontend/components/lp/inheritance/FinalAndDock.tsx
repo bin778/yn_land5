@@ -7,11 +7,10 @@ export function FinalCtaSection() {
   return (
     <section className="section-sm final">
       <div className="wrap final-grid">
-        <div className="reveal">
-          <div className="kicker">Contact Yeon</div>
+        <div>
+          <div className="kicker">Contact Yeoon</div>
           <h2>
-            가족과 더 크게 다투기 전에,
-            <br />
+            가족과 더 크게 다투기 전에, <br />
             지켜야 할 권리부터 확인하세요.
           </h2>
           <p className="lead">
@@ -19,7 +18,7 @@ export function FinalCtaSection() {
             가능합니다.
           </p>
         </div>
-        <div className="final-actions reveal">
+        <div className="final-actions">
           <TrackedCta className="btn btn-ghost btn-lg" href={`tel:${PHONE_TEL}`} trackSource="final-phone">
             24시 전화 상담
           </TrackedCta>

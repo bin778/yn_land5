@@ -39,14 +39,13 @@ export function ConsultSection() {
   return (
     <section className="section consult-wrap" id="consult">
       <div className="wrap consult-box">
-        <div className="reveal">
-          <div className="kicker">Before The Fight</div>
+        <div>
           <h2>
-            아직 싸울지
+            권리가 정리되면
             <br />
-            결정하지 않아도
+            해결은
             <br />
-            됩니다.
+            선명해집니다
           </h2>
           <p className="lead">
             가족과 협의할 수 있는 사건인지, 조정이 필요한 사건인지, 법원의 판단이 필요한 사건인지. 시작하기 전에 현재
@@ -67,7 +66,7 @@ export function ConsultSection() {
         </div>
 
         <form
-          className="form-panel reveal"
+          className="form-panel"
           id="inheritanceForm"
           onFocusCapture={handleFormInteraction}
           onSubmit={handleSubmit}
