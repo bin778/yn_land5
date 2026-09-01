@@ -25,7 +25,7 @@ export function FaqSection() {
           <div className="kicker">FAQ</div>
           <h2>
             상담 전에 가장 많이
-            <br />
+            <br className="br-mobile" />
             묻는 질문들
           </h2>
         </div>

@@ -13,8 +13,7 @@ export function LawyersSection() {
             생각하는 변호사들입니다
           </h2>
           <p className="lead">
-            상속 문제의 출발점은 서류보다 사람입니다. 실제 상담을 맡는 법무법인 여온 변호사들이 현재 상황부터 차분히
-            확인합니다.
+            실제 상담을 맡는 법무법인 여온 변호사들이 <br className="br-mobile" /> 현재 상황부터 차분히 확인합니다.
           </p>
         </div>
         <div className="lawyer-grid lawyer-grid--static">

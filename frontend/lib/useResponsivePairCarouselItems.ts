@@ -8,20 +8,15 @@ export function isCarouselPair<T>(slide: T | readonly T[]): slide is readonly T[
   return Array.isArray(slide);
 }
 
-export function useResponsivePairCarouselItems<T>(
-  items: readonly T[],
-  pairs: readonly (readonly T[])[],
-) {
+export function useResponsivePairCarouselItems<T>(items: readonly T[], pairs: readonly (readonly T[])[]) {
   const getItems = useCallback((): readonly (T | readonly T[])[] => {
-    if (typeof window !== 'undefined' && window.matchMedia(TABLET_MQ).matches) {
+    if (window.matchMedia(TABLET_MQ).matches) {
       return pairs;
     }
     return items;
   }, [items, pairs]);
 
-  const [carouselItems, setCarouselItems] = useState<readonly (T | readonly T[])[]>(() =>
-    typeof window !== 'undefined' ? getItems() : items,
-  );
+  const [carouselItems, setCarouselItems] = useState<readonly (T | readonly T[])[]>(items);
 
   const syncItems = useCallback(() => {
     setCarouselItems(getItems());

@@ -41,13 +41,16 @@ export function ConsultSection() {
       <div className="wrap consult-box">
         <div>
           <h2>
-            권리가 정리되면
-            <br />
+            권리가 정리되면{` `}
+            <br className="br-mobile" />
             해결은 선명해집니다
           </h2>
           <p className="lead">
-            가족과 협의할 수 있는 사건인지, 조정이 필요한 사건인지, 법원의 판단이 필요한 사건인지. 시작하기 전에 현재
-            상황과 지켜야 할 권리부터 정리할 수 있습니다.
+            가족과 협의할 수 있는 사건인지, 조정이 필요한 사건인지, 법원의 판단이 필요한 사건인지,{` `}
+            <br />
+            시작하기 전에 현재 상황과{` `}
+            <br className="br-mobile" />
+            지켜야 할 권리부터 정리할 수 있습니다.
           </p>
           <div className="trust-list">
             {TRUST_ROWS.map(row => (

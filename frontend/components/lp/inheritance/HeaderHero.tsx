@@ -57,9 +57,9 @@ export function HeroSection() {
         <div className="hero-copy">
           <h1>
             상속이 시작되면,
-            <br />
+            <br className="br-mobile" />
             <span>
-              지켜야 할 것이 <br /> 생깁니다
+              지켜야 할 것이 <br className="br-mobile" /> 생깁니다
             </span>
           </h1>
           <p className="lead">

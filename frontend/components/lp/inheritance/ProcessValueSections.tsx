@@ -9,12 +9,12 @@ export function ProcessSection() {
         <div className="center">
           <h2>
             권리는 지키고,
-            <br />
-            관계는 남을 수 있도록
+            <br className="br-mobile" />
+            관계는 유지될 수 있도록
           </h2>
           <p className="lead">
-            상속분쟁의 해결이 반드시 판결문이어야 하는 것은 아닙니다. 의뢰인의 권리를 충분히 보호하면서 분쟁 이후에 가족
-            관계까지 고려한 해결을 찾습니다.
+            상속분쟁의 해결이 반드시 <br className="br-mobile" /> 판결문이어야 하는 것은 아닙니다. <br /> 의뢰인의
+            권리를 충분히 보호하면서 <br className="br-mobile" /> 분쟁 이후에 가족 관계까지 고려한 해결을 찾습니다.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export function ValueSection() {
         <div className="center">
           <div className="kicker">What Must Be Checked</div>
           <h2>권리를 지키려면</h2>
-          <h2>네 가지를 먼저 확인해야 합니다</h2>
+          <h2>4가지를 먼저 확인해야 합니다</h2>
           <p className="lead">무엇을 주장할지보다 먼저, 어떤 재산과 사실이 내 권리에 영향을 주는지 확인합니다</p>
         </div>
         <div className="value-grid value-grid--static">

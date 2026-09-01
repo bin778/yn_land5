@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @import './inheritance/base.css';
+@import './inheritance/br.css';
 @import './inheritance/desktop.css';
 @import './inheritance/tablet.css';
 @import './inheritance/mobile.css';
