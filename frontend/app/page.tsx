@@ -18,10 +18,10 @@ export default function Home() {
         <StoryIntroSection />
         <ProblemSection />
         <TimeProtectionSection />
-        <ConsultSection />
         <ProcessSection />
         <ValueSection />
         <LawyersSection />
+        <ConsultSection />
         <FaqSection />
         <FinalCtaSection />
       </main>
