@@ -209,11 +209,17 @@ header.scrolled {
 .story-intro {
   background: linear-gradient(#fff, #faf8f3);
 }
+.quote-carousel {
+  position: relative;
+  margin-top: 44px;
+}
+.quote-nav {
+  display: none;
+}
 .quote-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  margin-top: 44px;
 }
 .quote-card {
   position: relative;
@@ -251,6 +257,7 @@ header.scrolled {
   border: 1px solid var(--line);
   border-left: 3px solid var(--champagne);
   padding: 32px 36px;
+  text-align: center;
   box-shadow: 0 12px 30px rgba(5, 28, 60, 0.04);
 }
 .story-highlight-quote {
@@ -272,11 +279,17 @@ header.scrolled {
 .problem {
   background: var(--ivory);
 }
+.problem-carousel {
+  position: relative;
+  margin-top: 44px;
+}
+.problem-nav {
+  display: none;
+}
 .problem-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-top: 44px;
 }
 .problem-card {
   background: #fff;
@@ -305,16 +318,6 @@ header.scrolled {
   color: var(--muted);
   font-size: 16px;
   margin-bottom: 0;
-}
-.story-line {
-  max-width: 860px;
-  margin: 38px auto 0;
-  text-align: center;
-  font-size: 19px;
-  color: #3d4b5d;
-}
-.story-line b {
-  color: var(--navy);
 }
 
 /* STORY 3 - TIME PROTECTION */
@@ -864,7 +867,8 @@ textarea:focus {
   z-index: 2;
 }
 .final h2 {
-  font-size: clamp(38px, 4.4vw, 57px);
+  font-size: clamp(28px, 4vw, 56px);
+  letter-spacing: -0.1em;
   margin-bottom: 12px;
 }
 .final .lead {
@@ -875,6 +879,9 @@ textarea:focus {
   gap: 10px;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+.btn-lg {
+  padding: 0 20px;
 }
 
 /* STICKY CONSULT BAR */
@@ -1072,13 +1079,4 @@ footer b {
   border: 0;
   background: #eef1f4;
   font-size: 20px;
-}
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: 0.65s ease;
-}
-.reveal.show {
-  opacity: 1;
-  transform: none;
 }

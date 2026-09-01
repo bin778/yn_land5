@@ -1,4 +1,8 @@
-@media (max-width: 1080px) {
+@media (max-width: 1023px) {
+  h3 {
+    font-size: 20px;
+    line-height: 1.5;
+  }
   .navlinks {
     display: none;
   }
@@ -11,7 +15,6 @@
   .hero-lawyer img {
     height: 500px;
   }
-  .quote-grid,
   .lawyer-grid,
   .protection-method-grid {
     grid-template-columns: 1fr;
@@ -25,5 +28,73 @@
   }
   .value-grid {
     grid-template-columns: 1fr 1fr;
+  }
+  .time-number {
+    font-size: 72px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .quote-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    padding: 4px 36px;
+    margin: 0 -4px;
+  }
+
+  .quote-card p {
+    margin: 24px 0 6px;
+  }
+
+  .quote-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .quote-card {
+    flex: 0 0 calc(50% - 6px);
+    scroll-snap-align: start;
+    min-height: auto;
+    padding-bottom: 1px;
+  }
+
+  .quote-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--navy);
+    box-shadow: 0 4px 12px rgba(5, 28, 60, 0.08);
+    cursor: pointer;
+  }
+
+  .quote-nav svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .quote-nav--prev {
+    left: 0;
+  }
+
+  .quote-nav--next {
+    right: 0;
+  }
+
+  .quote-nav:disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
   }
 }

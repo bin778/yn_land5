@@ -22,7 +22,7 @@ export function SiteFooter() {
             <b>법무법인 여온</b>
           </p>
           <p>상속재산분할 · 유류분 · 기여분 · 상속포기·한정승인</p>
-          <p style={{ marginTop: 14 }}>© LAW FIRM YEON. All rights reserved.</p>
+          <p style={{ marginTop: 14 }}>© LAW FIRM YEOON. All rights reserved.</p>
         </div>
       </div>
     </footer>

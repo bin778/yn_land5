@@ -1,4 +1,7 @@
-@media (max-width: 780px) {
+@media (max-width: 767px) {
+  h3 {
+    font-size: 18px;
+  }
   .wrap {
     width: min(calc(100% - 28px), var(--max));
   }
@@ -28,6 +31,11 @@
     grid-template-columns: 1fr;
     gap: 0;
   }
+  .hero-sub {
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 16px;
+  }
   .hero-copy {
     padding: 70px 0 10px;
   }
@@ -52,17 +60,95 @@
   .story-marker {
     display: none;
   }
-  .quote-grid,
-  .problem-grid,
   .lawyer-grid,
   .value-grid {
     grid-template-columns: 1fr;
   }
+  .problem-carousel {
+    margin-top: 44px;
+  }
+  .problem-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    padding: 4px 18px;
+    margin: 0 -4px;
+  }
+  .problem-card p {
+    font-size: 14px;
+  }
+  .problem-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .problem-card {
+    flex: 0 0 calc(100% - 10px);
+    scroll-snap-align: center;
+    min-height: auto;
+  }
+  .quote-carousel {
+    margin-top: 44px;
+  }
+  .quote-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    padding: 4px 36px;
+    margin: 0 -4px;
+  }
+  .quote-grid::-webkit-scrollbar {
+    display: none;
+  }
   .quote-card {
+    flex: 0 0 calc(100% - 5px);
+    scroll-snap-align: center;
     min-height: auto;
   }
   .quote-card p {
     margin: 24px 0 6px;
+  }
+  .quote-nav,
+  .problem-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--navy);
+    box-shadow: 0 4px 12px rgba(5, 28, 60, 0.08);
+    cursor: pointer;
+  }
+  .quote-nav svg,
+  .problem-nav svg {
+    width: 18px;
+    height: 18px;
+  }
+  .quote-nav--prev,
+  .problem-nav--prev {
+    left: 0;
+  }
+  .quote-nav--next,
+  .problem-nav--next {
+    right: 0;
+  }
+  .quote-nav:disabled,
+  .problem-nav:disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
   }
   .story-highlight {
     padding: 24px 20px;
@@ -75,6 +161,9 @@
   }
   .protection-method-grid {
     grid-template-columns: 1fr;
+  }
+  .protection-core {
+    min-height: 320px;
   }
   .protection-core strong {
     font-size: 28px;
