@@ -4,7 +4,19 @@ import { useState } from 'react';
 import { FAQ_ITEMS } from '@/data/content';
 
 export function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
+
+  function toggle(index: number) {
+    setOpenIndexes(prev => {
+      const next = new Set(prev);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
+  }
 
   return (
     <section className="section" id="faq">
@@ -19,14 +31,14 @@ export function FaqSection() {
         </div>
         <div className="faq-list">
           {FAQ_ITEMS.map((item, index) => {
-            const isOpen = openIndex === index;
+            const isOpen = openIndexes.has(index);
             return (
               <div key={item.q} className={`faq-item${isOpen ? ' open' : ''}`}>
                 <button
                   type="button"
                   className="faq-q"
                   aria-expanded={isOpen}
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  onClick={() => toggle(index)}
                 >
                   <span className="q">
                     <span className="qmark">Q</span>

@@ -6,7 +6,7 @@ import { FinalCtaSection } from '@/components/lp/inheritance/FinalAndDock';
 import { Header, HeroSection } from '@/components/lp/inheritance/HeaderHero';
 import { LawyersSection } from '@/components/lp/inheritance/LawyersSection';
 import { ProcessSection, ValueSection } from '@/components/lp/inheritance/ProcessValueSections';
-import { ProblemSection, StoryIntroSection } from '@/components/lp/inheritance/StorySections';
+import { ProblemSection, StoryIntroSection, TimeProtectionSection } from '@/components/lp/inheritance/StorySections';
 import { StickyConsultBar } from '@/components/lp/inheritance/StickyConsultBar';
 
 export default function Home() {
@@ -17,6 +17,7 @@ export default function Home() {
         <HeroSection />
         <StoryIntroSection />
         <ProblemSection />
+        <TimeProtectionSection />
         <ConsultSection />
         <ProcessSection />
         <ValueSection />

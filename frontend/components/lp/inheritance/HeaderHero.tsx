@@ -55,15 +55,17 @@ export function HeroSection() {
     <section className="hero">
       <div className="wrap hero-grid">
         <div className="hero-copy reveal">
-          <div className="kicker">Inheritance</div>
+          <div className="kicker">Inheritance · Protection</div>
           <h1>
-            상속은 재산보다 먼저,
+            상속이 시작되면,
             <br />
-            <span>관계를 흔듭니다.</span>
+            <span>
+              지켜야 할 것이 <br /> 생깁니다.
+            </span>
           </h1>
           <p className="lead">
-            갑작스러운 상속은 감정, 시간, 재산이 동시에 얽히는 문제입니다. 누구의 말이 맞는지 다투기 전에, 무엇을
-            확인해야 하는지부터 정리해야 합니다.
+            같은 가족이어도 상속이 시작되는 순간 재산을 바라보는 기준은 달라집니다. 무엇을 받을 것인지보다 먼저, 무엇을
+            잃지 않아야 하는지 확인해야 합니다.
           </p>
           <div className="hero-actions">
             <TrackedCta className="btn btn-ghost btn-lg" href={`tel:${PHONE_TEL}`} trackSource="hero-phone">
@@ -97,7 +99,7 @@ export function HeroSection() {
           <div className="hero-card glass">
             <div className="role">법무법인 여온 대표변호사</div>
             <div className="name">유영규 변호사</div>
-            <p>상담 단계에서 현재 상황과 확인해야 할 상속 쟁점을 직접 듣고 정리합니다.</p>
+            <p>의뢰인의 권리를 먼저 확인하고, 그 권리를 바탕으로 가장 합리적인 해결 방법을 찾습니다.</p>
           </div>
         </div>
       </div>

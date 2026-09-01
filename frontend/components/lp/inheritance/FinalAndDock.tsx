@@ -11,9 +11,13 @@ export function FinalCtaSection() {
           <div className="kicker">Contact Yeon</div>
           <h2>
             가족과 더 크게 다투기 전에,
-            <br />내 권리부터 정리하세요.
+            <br />
+            지켜야 할 권리부터 확인하세요.
           </h2>
-          <p className="lead">무엇을 요구할지 결정하기 전에, 무엇을 확인해야 하는지부터 시작할 수 있습니다.</p>
+          <p className="lead">
+            상속분쟁의 답이 반드시 소송일 필요는 없습니다. 그러나 합리적인 해결도 내 권리가 무엇인지 정확히 알고 있을 때
+            가능합니다.
+          </p>
         </div>
         <div className="final-actions reveal">
           <TrackedCta className="btn btn-ghost btn-lg" href={`tel:${PHONE_TEL}`} trackSource="final-phone">

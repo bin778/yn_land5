@@ -12,8 +12,9 @@
     height: 500px;
   }
   .quote-grid,
-  .lawyer-grid {
-    grid-template-columns: 1fr 1fr;
+  .lawyer-grid,
+  .protection-method-grid {
+    grid-template-columns: 1fr;
   }
   .process-grid {
     grid-template-columns: repeat(3, 1fr);

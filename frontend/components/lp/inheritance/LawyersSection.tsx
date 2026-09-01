@@ -8,9 +8,8 @@ export function LawyersSection() {
         <div className="center reveal">
           <div className="kicker">Lawyers of Yeon</div>
           <h2>
-            이야기를 끝까지 듣는
-            <br />
-            변호사들입니다.
+            권리를 지키고,
+            <br />그 이후까지 생각하는 변호사들입니다.
           </h2>
           <p className="lead">
             상속 문제의 출발점은 서류보다 사람입니다. 실제 상담을 맡는 법무법인 여온 변호사들이 현재 상황부터 차분히

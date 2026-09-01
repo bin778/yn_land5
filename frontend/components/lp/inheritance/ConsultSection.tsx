@@ -40,17 +40,17 @@ export function ConsultSection() {
     <section className="section consult-wrap" id="consult">
       <div className="wrap consult-box">
         <div className="reveal">
-          <div className="kicker">Your Situation</div>
+          <div className="kicker">Before The Fight</div>
           <h2>
-            이제,
+            아직 싸울지
             <br />
-            내 상황부터
+            결정하지 않아도
             <br />
-            정리해보세요.
+            됩니다.
           </h2>
           <p className="lead">
-            법률용어를 몰라도 괜찮습니다. 현재 알고 있는 사실만 남겨주시면 상담에서 무엇부터 확인해야 하는지 정리할 수
-            있습니다.
+            가족과 협의할 수 있는 사건인지, 조정이 필요한 사건인지, 법원의 판단이 필요한 사건인지. 시작하기 전에 현재
+            상황과 지켜야 할 권리부터 정리할 수 있습니다.
           </p>
           <div className="trust-list">
             {TRUST_ROWS.map(row => (

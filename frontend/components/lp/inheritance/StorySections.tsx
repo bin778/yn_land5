@@ -1,4 +1,4 @@
-import { PROBLEMS, QUOTES } from '@/data/content';
+import { PROBLEMS, QUOTES, TIME_POINTS } from '@/data/content';
 
 export function StoryIntroSection() {
   return (
@@ -7,13 +7,11 @@ export function StoryIntroSection() {
         <div className="center reveal">
           <div className="kicker">Story 01</div>
           <h2>
-            어느 날, 가족이
+            같은 가족이어도,
             <br />
-            ‘상속인’이 되었습니다.
+            상속이 시작되면 생각은 달라집니다.
           </h2>
-          <p className="lead">
-            같은 부모, 같은 가족이어도 상속이 시작되는 순간 각자가 기억하는 시간과 기여는 달라집니다.
-          </p>
+          <p className="lead">부모님이 남긴 재산은 하나지만, 그것을 바라보는 가족들의 기억과 기준은 같지 않습니다.</p>
         </div>
         <div className="quote-grid">
           {QUOTES.map(quote => (
@@ -23,9 +21,13 @@ export function StoryIntroSection() {
             </article>
           ))}
         </div>
-        <p className="story-line reveal">
-          상속은 돈의 문제이기 전에, <b>가족의 기억과 기대가 처음 숫자로 부딪히는 순간</b>입니다.
-        </p>
+        <blockquote className="story-highlight reveal">
+          <p className="story-highlight-quote">“상속에 있어 추억은 결국 숫자로 계산됩니다.”</p>
+          <p className="story-highlight-body">
+            누가 부모님을 얼마나 돌봤는지, 누가 생전에 무엇을 받았는지, 누구에게 어떤 약속이 있었는지. 가족에게는
+            기억이지만 상속분쟁에서는 결국 자료와 법적 기준으로 확인됩니다.
+          </p>
+        </blockquote>
       </div>
     </section>
   );
@@ -38,13 +40,13 @@ export function ProblemSection() {
         <div className="center reveal">
           <div className="kicker">Story 02</div>
           <h2>
-            갈등이 커지는 이유는
+            감정이 깊어질수록,
             <br />
-            대부분 비슷합니다.
+            권리도 지키기 어려워질 수 있습니다.
           </h2>
           <p className="lead">
-            처음부터 소송을 원하는 가족은 많지 않습니다. 다만 정확히 모르는 상태에서 대화를 시작하면 감정이 먼저
-            커집니다.
+            처음부터 가족 간 소송을 원하는 사람은 많지 않습니다. 하지만 상속절차를 정확히 모르는 상태에서 대화를
+            시작하면 감정이 먼저 커질 수 있습니다.
           </p>
         </div>
         <div className="problem-grid">
@@ -55,6 +57,50 @@ export function ProblemSection() {
               <p>{item.body}</p>
             </article>
           ))}
+        </div>
+        <p className="story-line reveal">
+          문제는 그때는 이미 <b>처음보다 해결할 수 있는 선택지가 줄어들 수 있다는 것</b>입니다.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+export function TimeProtectionSection() {
+  return (
+    <section className="section time-protection" id="protect">
+      <div className="wrap">
+        <div className="center reveal">
+          <div className="kicker">Story 03</div>
+          <h2>
+            권리를 지키는 데에도
+            <br />
+            확인해야 할 시간이 있습니다.
+          </h2>
+          <p className="lead">
+            소송을 빨리 시작하라는 뜻이 아닙니다. 내 권리를 지키기 위해 무엇을 언제 확인해야 하는지 아는 것이
+            먼저입니다.
+          </p>
+        </div>
+
+        <div className="time-protection-grid">
+          <div className="time-panel reveal">
+            <div className="time-number">03</div>
+            <h3>시간은 상속분쟁의 중요한 변수입니다.</h3>
+            <p>
+              상속포기·한정승인처럼 법에서 정한 기간을 확인해야 하는 절차가 있고, 시간이 오래 지나면
+              계좌내역·증여자료·가족 간 대화 등 사실관계를 확인할 자료를 확보하기 어려워질 수 있습니다.
+            </p>
+          </div>
+
+          <div className="time-points">
+            {TIME_POINTS.map(point => (
+              <div key={point.title} className="time-point reveal">
+                <b>{point.title}</b>
+                <span>{point.body}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -61,9 +61,37 @@
   .quote-card {
     min-height: auto;
   }
+  .quote-card p {
+    margin: 24px 0 6px;
+  }
+  .story-highlight {
+    padding: 24px 20px;
+  }
+  .story-highlight-body {
+    font-size: 14px;
+  }
+  .time-protection-grid {
+    grid-template-columns: 1fr;
+  }
+  .protection-method-grid {
+    grid-template-columns: 1fr;
+  }
+  .protection-core strong {
+    font-size: 28px;
+  }
+  .time-point span {
+    font-size: 14px;
+  }
   .consult-box {
     grid-template-columns: 1fr;
     gap: 34px;
+  }
+  textarea,
+  input,
+  select {
+    font-size: 14px;
+    padding: 10px;
+    min-height: 42px;
   }
   .form-panel {
     padding: 23px;
