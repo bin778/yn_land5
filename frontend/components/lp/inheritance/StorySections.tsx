@@ -8,7 +8,7 @@ export function StoryIntroSection() {
     <section className="section story-intro" id="story">
       <div className="wrap">
         <div className="center">
-          <div className="kicker">Story 01</div>
+          <div className="kicker">01</div>
           <h2>
             같은 가족이어도,
             <br />
@@ -23,11 +23,7 @@ export function StoryIntroSection() {
           <p className="story-highlight-quote">
             “상속에 있어 추억은 <br className="br-mobile" /> 숫자로 계산됩니다”
           </p>
-          <p className="story-highlight-body">
-            누가 부모님을 얼마나 돌봤는지, 누가 생전에 무엇을 받았는지, <br className="br-desktop" /> 누구에게 어떤
-            약속이 있었는지, <br className="br-mobile" /> 가족에게는 기억이지만 상속분쟁에서는 결국 자료와 법적 기준으로
-            확인됩니다.
-          </p>
+          <p className="story-highlight-body">상속분쟁에서는 결국 자료와 법적 기준으로 확인됩니다.</p>
         </blockquote>
       </div>
     </section>
@@ -39,7 +35,7 @@ export function ProblemSection() {
     <section className="section problem">
       <div className="wrap">
         <div className="center">
-          <div className="kicker">Story 02</div>
+          <div className="kicker">02</div>
           <h2>
             감정이 깊어질수록,
             <br />
@@ -63,7 +59,7 @@ export function TimeProtectionSection() {
     <section className="section time-protection" id="protect">
       <div className="wrap">
         <div className="center">
-          <div className="kicker">Story 03</div>
+          <div className="kicker">03</div>
           <h2>
             권리를 지키는 데에도
             <br />
