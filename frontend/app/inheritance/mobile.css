@@ -38,7 +38,7 @@
     margin-top: 16px;
   }
   .hero-copy {
-    padding: 70px 0 0;
+    padding: 40px 0 0;
   }
   .hero h1 {
     font-size: 47px;
@@ -53,8 +53,8 @@
   }
   .hero-lawyer img {
     height: 450px;
-    transform: translate(50px, -90px);
-    margin-bottom: -60px;
+    transform: translate(100px, -150px);
+    margin-bottom: -120px;
   }
   .hero-card {
     left: 0;
