@@ -42,7 +42,7 @@ export function Header() {
             {PHONE_DISPLAY}
           </TrackedCta>
           <TrackedCta href={`tel:${PHONE_TEL}`} className="btn btn-primary" trackSource="header-phone-cta">
-            24시 전화 상담 →
+            📞 24시 전화 상담
           </TrackedCta>
         </div>
       </div>

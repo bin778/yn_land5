@@ -3,7 +3,7 @@
     font-size: 18px;
   }
   .wrap {
-    width: min(calc(100% - 28px), var(--max));
+    width: min(calc(100% - 20px), var(--max));
   }
   .section {
     padding: 38px 0;
@@ -26,6 +26,7 @@
   .hero {
     min-height: auto;
     padding-top: 66px;
+    padding-bottom: 0;
   }
   .hero-grid {
     grid-template-columns: 1fr;
@@ -37,7 +38,7 @@
     margin-top: 16px;
   }
   .hero-copy {
-    padding: 70px 0 10px;
+    padding: 70px 0 0;
   }
   .hero h1 {
     font-size: 47px;
@@ -46,15 +47,18 @@
     width: 100%;
   }
   .hero-lawyer {
-    height: 540px;
+    height: auto;
     margin-top: -20px;
+    overflow: visible;
   }
   .hero-lawyer img {
-    height: 535px;
+    height: 450px;
+    transform: translate(50px, -90px);
+    margin-bottom: -60px;
   }
   .hero-card {
     left: 0;
-    bottom: 30px;
+    bottom: 20px;
     width: 100%;
   }
   .story-marker {
