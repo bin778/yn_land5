@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Noto_Serif_KR } from 'next/font/google';
 import { AnalyticsBootstrap } from '@/components/analytics/AnalyticsBootstrap';
 import { ConsultModalProvider } from '@/lib/consult-modal-context';
 import { assetPath } from '@/lib/asset-path';
@@ -7,12 +6,8 @@ import { GTM_HEAD_SNIPPET, GTM_ID } from '@/lib/gtm';
 import { DEPLOY_URL } from '../deploy.config';
 import './globals.css';
 
-const notoSerif = Noto_Serif_KR({
-  subsets: ['latin'],
-  weight: ['500', '700'],
-  variable: '--font-noto-serif-kr',
-  display: 'swap',
-});
+const PRETENDARD_CDN = 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css';
+const NOTO_SERIF_KR_CDN = 'https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap';
 
 const TITLE = '상속재산분할·유류분·기여분 상담 | 법무법인 여온';
 const DESCRIPTION =
@@ -41,13 +36,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ko" className={notoSerif.variable}>
+    <html lang="ko">
       <head>
         <script dangerouslySetInnerHTML={{ __html: GTM_HEAD_SNIPPET }} />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-        />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href={PRETENDARD_CDN} />
+        <link rel="stylesheet" href={NOTO_SERIF_KR_CDN} />
       </head>
       <body>
         <noscript>

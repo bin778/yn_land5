@@ -9,7 +9,7 @@ export function ProcessSection() {
       <div className="wrap">
         <div className="center">
           <h2>
-            권리는 지키고,
+            권리는 지키고,{` `}
             <br className="br-mobile" />
             관계는 유지될 수 있도록
           </h2>

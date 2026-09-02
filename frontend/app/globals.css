@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+:root {
+  --font-noto-serif-kr: 'Noto Serif KR', 'Iowan Old Style', 'Times New Roman', serif;
+}
+
 @import './inheritance/base.css';
 @import './inheritance/br.css';
 @import './inheritance/desktop.css';

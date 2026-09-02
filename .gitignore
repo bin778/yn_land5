@@ -1,0 +1,20 @@
+# dependencies
+frontend/node_modules/
+frontend/.pnp
+frontend/.pnp.*
+
+# next.js
+frontend/.next/
+frontend/out/
+
+# misc
+.DS_Store
+frontend/*.pem
+frontend/.env*.local
+
+# debug
+frontend/npm-debug.log*
+
+# typescript
+frontend/next-env.d.ts
+frontend/*.tsbuildinfo
