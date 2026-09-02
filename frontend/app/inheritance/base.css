@@ -140,7 +140,7 @@ h3 {
   transform: translateY(-2px);
 }
 .btn-primary {
-  background: var(--champagne);
+  background: #fff;
   color: #071a36;
   box-shadow: 0 10px 28px rgba(198, 160, 102, 0.22);
 }
@@ -167,4 +167,9 @@ h3 {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.13);
   backdrop-filter: blur(18px);
+}
+
+.privacy,
+.sticky-consult-meta {
+  display: none;
 }

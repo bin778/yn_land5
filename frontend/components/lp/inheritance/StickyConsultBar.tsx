@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, type FormEvent } from 'react';
+import { MessageModal } from '@/components/common/MessageModal';
 import { TrackedCta } from '@/components/common/TrackedCta';
 import { KAKAO_CHAT_URL, PHONE_TEL, PRIVACY_URL } from '@/lib/constants';
 import { useConsultSubmit } from '@/lib/useConsultSubmit';
@@ -9,25 +10,21 @@ import { useConsultSubmit } from '@/lib/useConsultSubmit';
 export function StickyConsultBar() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [agree, setAgree] = useState(false);
-  const { isSubmitting, status, showStatus, handleFormInteraction, submit } = useConsultSubmit({
-    formLabel: 'inheritance-sticky',
-  });
+  const [agree, setAgree] = useState(true);
+  const { isSubmitting, statusMessage, isStatusModalOpen, closeStatusModal, handleFormInteraction, submit } =
+    useConsultSubmit({
+      formLabel: 'inheritance-sticky',
+    });
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    if (!agree) {
-      alert('개인정보 수집 및 상담 연락에 동의해 주세요.');
-      return;
-    }
 
     void submit(name, phone, {
       situation: '하단 고정폼 문의',
       onSuccess: () => {
         setName('');
         setPhone('');
-        setAgree(false);
+        setAgree(true);
       },
     });
   }
@@ -98,10 +95,10 @@ export function StickyConsultBar() {
               </span>
             </label>
           </div>
-
-          {showStatus && status ? <p className="sticky-consult-status">{status}</p> : null}
         </form>
       </div>
+
+      <MessageModal message={statusMessage} isOpen={isStatusModalOpen} onClose={closeStatusModal} />
     </section>
   );
 }

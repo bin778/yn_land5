@@ -423,7 +423,7 @@ header.scrolled {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 0.75fr 1.25fr;
+  grid-template-columns: 0.8fr 1.2fr;
   gap: 60px;
   align-items: start;
 }
@@ -1107,4 +1107,32 @@ footer b {
   border: 0;
   background: #eef1f4;
   font-size: 20px;
+}
+.message-modal {
+  z-index: 150;
+  background: rgba(2, 13, 29, 0.82);
+}
+.message-modal-card {
+  background: var(--navy);
+  border: 1px solid rgba(198, 160, 102, 0.28);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.45);
+}
+.message-modal-body {
+  margin: 8px 0 22px;
+  padding-right: 28px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.message-modal-card .modal-close {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+.message-modal-confirm {
+  width: 100%;
+  background: var(--champagne);
+  color: var(--navy);
+}
+.message-modal-confirm:hover {
+  background: var(--champagne2);
 }

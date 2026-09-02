@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { type FormEvent } from 'react';
+import { MessageModal } from '@/components/common/MessageModal';
 import { ASSET_OPTIONS, MATTER_OPTIONS, TRUST_ROWS } from '@/data/content';
 import { renderTextSegments } from '@/lib/renderTextSegments';
 import { PRIVACY_URL } from '@/lib/constants';
@@ -10,9 +11,10 @@ import { normalizePhone } from '@/lib/phone';
 import { useConsultSubmit } from '@/lib/useConsultSubmit';
 
 export function ConsultSection() {
-  const { isSubmitting, status, showStatus, handleFormInteraction, submit } = useConsultSubmit({
-    formLabel: 'inheritance',
-  });
+  const { isSubmitting, statusMessage, isStatusModalOpen, closeStatusModal, handleFormInteraction, submit } =
+    useConsultSubmit({
+      formLabel: 'inheritance',
+    });
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -51,7 +53,9 @@ export function ConsultSection() {
             <br />
             시작하기 전에 현재 상황과{` `}
             <br className="br-mobile" />
-            지켜야 할 권리부터 정리할 수 있습니다.
+            지켜야 할 권리부터{` `}
+            <br className="br-desktop" />
+            정리할 수 있습니다.
           </p>
           <div className="trust-list">
             {TRUST_ROWS.map(row => (
@@ -127,7 +131,7 @@ export function ConsultSection() {
             </div>
           </div>
           <label className="privacy">
-            <input type="checkbox" required disabled={isSubmitting} />
+            <input type="checkbox" defaultChecked disabled={isSubmitting} />
             <span>
               개인정보 수집 및 상담 연락에 동의합니다.{' '}
               <Link href={PRIVACY_URL} target="_blank" rel="noopener noreferrer">
@@ -139,11 +143,10 @@ export function ConsultSection() {
           <button className="btn btn-navy btn-lg" style={{ width: '100%' }} type="submit" disabled={isSubmitting}>
             {isSubmitting ? '접수 중...' : '상담 신청하기 →'}
           </button>
-          <div className={`form-status${showStatus ? ' show' : ''}`} id="formStatus">
-            {status}
-          </div>
         </form>
       </div>
+
+      <MessageModal message={statusMessage} isOpen={isStatusModalOpen} onClose={closeStatusModal} />
     </section>
   );
 }

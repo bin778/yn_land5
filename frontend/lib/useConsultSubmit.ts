@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLazyReCaptcha } from '@/components/common/lazyReCaptchaContext';
 import { trackEvent } from '@/lib/analytics';
 import { isBlockedName, isValidName, normalizeName } from '@/lib/form';
@@ -14,14 +14,19 @@ type UseConsultSubmitOptions = {
 export function useConsultSubmit({ formLabel }: UseConsultSubmitOptions) {
   const { activate, executeRecaptcha } = useLazyReCaptcha();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState('');
-  const [showStatus, setShowStatus] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
+  const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
   const hasTrackedFormStartRef = useRef(false);
   const executeRef = useRef(executeRecaptcha);
 
   useEffect(() => {
     executeRef.current = executeRecaptcha;
   }, [executeRecaptcha]);
+
+  const closeStatusModal = useCallback(() => {
+    setIsStatusModalOpen(false);
+    setStatusMessage('');
+  }, []);
 
   function handleFormInteraction() {
     activate();
@@ -45,11 +50,7 @@ export function useConsultSubmit({ formLabel }: UseConsultSubmitOptions) {
     return undefined;
   }
 
-  async function submit(
-    nameRaw: string,
-    phoneRaw: string,
-    options?: { situation?: string; onSuccess?: () => void },
-  ) {
+  async function submit(nameRaw: string, phoneRaw: string, options?: { situation?: string; onSuccess?: () => void }) {
     const name = normalizeName(nameRaw);
     const tel = normalizePhone(phoneRaw);
 
@@ -84,7 +85,7 @@ export function useConsultSubmit({ formLabel }: UseConsultSubmitOptions) {
     }
 
     setIsSubmitting(true);
-    setShowStatus(false);
+    closeStatusModal();
 
     const result = await submitConsultLead({
       name,
@@ -97,12 +98,11 @@ export function useConsultSubmit({ formLabel }: UseConsultSubmitOptions) {
     if (result.ok) {
       alert('상담 접수가 완료되었습니다.\n담당 변호사가 확인 후 곧 연락드리겠습니다.');
       options?.onSuccess?.();
-      setStatus('');
-      setShowStatus(false);
+      closeStatusModal();
       hasTrackedFormStartRef.current = false;
     } else {
-      setStatus(result.message);
-      setShowStatus(true);
+      setStatusMessage(result.message);
+      setIsStatusModalOpen(true);
     }
 
     setIsSubmitting(false);
@@ -110,8 +110,9 @@ export function useConsultSubmit({ formLabel }: UseConsultSubmitOptions) {
 
   return {
     isSubmitting,
-    status,
-    showStatus,
+    statusMessage,
+    isStatusModalOpen,
+    closeStatusModal,
     handleFormInteraction,
     submit,
   };

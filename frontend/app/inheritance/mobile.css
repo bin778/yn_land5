@@ -379,4 +379,19 @@
     padding: 0 20px 10px;
     font-size: 13px;
   }
+  .modal-card {
+    padding: 20px;
+  }
+  .modal-close {
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
+  }
+  .message-modal-body {
+    margin: 4px 0 10px;
+    padding-right: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    line-height: 1.6;
+  }
 }

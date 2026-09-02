@@ -56,9 +56,9 @@ export function ValueSection() {
         <div className="center">
           <div className="kicker">What Must Be Checked</div>
           <h2>권리를 지키려면</h2>
-          <h2>4가지를 먼저 확인해야 합니다</h2>
+          <h2>4가지를 확인해야 합니다</h2>
           <p className="lead">
-            무엇을 주장할지보다 먼저, 어떤 재산과 사실이 <br className="br-mobile" />내 권리에 영향을 주는지 확인합니다
+            무엇을 주장할지보다, 어떤 재산과 사실이 <br className="br-mobile" />내 권리에 영향을 주는지 확인합니다
           </p>
         </div>
         <div className="value-grid value-grid--static">
