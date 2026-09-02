@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { type FormEvent } from 'react';
 import { ASSET_OPTIONS, MATTER_OPTIONS, TRUST_ROWS } from '@/data/content';
+import { renderTextSegments } from '@/lib/renderTextSegments';
 import { PRIVACY_URL } from '@/lib/constants';
 import { composeSituation, normalizeName } from '@/lib/form';
 import { normalizePhone } from '@/lib/phone';
@@ -59,7 +60,7 @@ export function ConsultSection() {
                 <span>
                   <b>{row.title}</b>
                   <br />
-                  {row.body}
+                  {renderTextSegments(row.body)}
                 </span>
               </div>
             ))}

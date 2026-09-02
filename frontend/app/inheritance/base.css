@@ -112,7 +112,7 @@ h3 {
   letter-spacing: -0.075em;
 }
 .lead {
-  font-size: clamp(15px, 2vw, 21px);
+  font-size: clamp(14px, 2vw, 20px);
   color: #536274;
   max-width: 760px;
 }
@@ -159,9 +159,9 @@ h3 {
   color: var(--navy);
 }
 .btn-lg {
-  min-height: 62px;
+  min-height: 56px;
   padding: 0 30px;
-  font-size: 17px;
+  font-size: 18px;
 }
 .glass {
   background: rgba(255, 255, 255, 0.08);

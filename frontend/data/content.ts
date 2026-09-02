@@ -1,3 +1,5 @@
+import type { TextContent } from '@/lib/renderTextSegments';
+
 export const QUOTES = [
   {
     text: '“형제는 이미 많은 재산을 받았습니다”',
@@ -35,48 +37,56 @@ export const PROBLEMS = [
   },
 ] as const;
 
-export const TIME_POINTS = [
+export const TIME_POINTS: readonly { title: string; body: TextContent }[] = [
   {
     title: '상속포기·한정승인',
-    body: '일반적으로 상속개시가 있음을 안 날부터 3개월 이내에 검토해야 하는 경우가 많습니다.',
+    body: ['일반적으로 상속개시가 있음을 안 날부터 ', 'br-mobile', '3개월 이내에 검토해야 하는 경우가 많습니다.'],
   },
   {
     title: '생전 증여와 재산 흐름',
-    body: '시간이 흐를수록 과거 자금 흐름과 증여 경위를 입증할 자료 확보가 어려워질 수 있습니다.',
+    body: ['과거 자금 흐름과 증여 경위를 ', 'br-mobile', '입증할 자료 확보가 어려워질 수 있습니다.'],
   },
   {
     title: '협의의 타이밍',
-    body: '감정이 극단적으로 악화되기 전에 법적 기준을 확인하면 현실적인 협의 범위를 찾는 데 도움이 될 수 있습니다.',
+    body: [
+      '감정이 극단적으로 악화되기 전에 법적 기준을 확인하면 ',
+      'br-mobile',
+      '현실적인 협의 범위를 찾는 데 도움이 될 수 있습니다.',
+    ],
   },
 ] as const;
 
-export const TRUST_ROWS = [
+export const TRUST_ROWS: readonly { title: string; body: TextContent }[] = [
   {
     title: '변호사 직접 상담',
-    body: '사무장 상담이 아니라 사건의 핵심 쟁점을 변호사가 확인합니다.',
+    body: ['사무장 상담이 아니라 사건의 핵심 쟁점을 ', 'br-mobile', '변호사가 확인합니다.'],
   },
   {
     title: '소송을 전제로 하지 않는 상담',
-    body: '협의 가능성, 필요한 절차와 실제 실익을 함께 살펴봅니다.',
+    body: ['협의 가능성, 필요한 절차와 실제 실익을 ', 'br-mobile', '함께 살펴봅니다.'],
   },
   {
     title: '상담 정보 비밀 보호',
     body: '입력 정보는 상담 연락 목적에 맞게 관리해야 합니다.',
   },
-] as const;
+];
 
-export const SOLUTIONS = [
+export const SOLUTIONS: readonly { title: string; body: TextContent }[] = [
   {
     title: '협의가 더 유리한 사건',
-    body: '법적 기준을 토대로 현실적인 분할 범위를 만들고 가족 간 직접 해결 가능성을 검토합니다.',
+    body: ['법적 기준을 토대로 현실적인 분할 범위를 만들고 ', 'br-mobile', '가족 간 직접 해결 가능성을 검토합니다.'],
   },
   {
     title: '조정이 필요한 사건',
-    body: '당사자만으로 합의가 어렵다면 법원의 조정 절차를 통해 현실적인 조건을 만드는 방법을 검토합니다.',
+    body: [
+      '당사자만으로 합의가 어렵다면 법원의 조정 절차를 통해 ',
+      'br-mobile',
+      '현실적인 조건을 만드는 방법을 검토합니다.',
+    ],
   },
   {
     title: '법원의 판단이 필요한 사건',
-    body: '권리나 재산을 지키기 위해 필요한 경우 심판·소송과 보전 절차를 검토합니다.',
+    body: ['권리나 재산을 지키기 위해 필요한 경우 ', 'br-mobile', '심판·소송과 보전 절차를 검토합니다.'],
   },
 ] as const;
 
@@ -112,11 +122,16 @@ export const VALUE_CARDS = [
   },
 ] as const;
 
-export const LAWYERS = [
+export const LAWYERS: readonly {
+  image: string;
+  name: string;
+  bio: TextContent;
+  career: readonly string[];
+}[] = [
   {
     image: '/image/lawyer-yoo.webp',
     name: '유영규 변호사',
-    bio: '상담 단계부터 전체 재산관계와 주요 쟁점을 함께 정리합니다.',
+    bio: ['상담 단계부터 전체 재산관계와 ', 'br', '주요 쟁점을 함께 정리합니다.'],
     career: [
       '고려대학교 사회학 학사',
       '전남대학교 법학전문대학원 석사',
@@ -128,7 +143,7 @@ export const LAWYERS = [
   {
     image: '/image/lawyer-kim-hwan.webp',
     name: '김환섭 변호사',
-    bio: '복잡하게 얽힌 사실관계를 법적 쟁점의 순서로 정리합니다.',
+    bio: ['복잡하게 얽힌 사실관계를 ', 'br', '법적 쟁점의 순서로 정리합니다.'],
     career: [
       '단국대학교 법학과 학사',
       '육군 중위(헌병) 전역',
@@ -140,7 +155,7 @@ export const LAWYERS = [
   {
     image: '/image/lawyer-hong.webp',
     name: '홍기웅 변호사',
-    bio: '상속재산분할과 공동상속인 사이의 분쟁 쟁점을 세밀하게 검토합니다.',
+    bio: ['상속재산분할과 공동상속인 사이의 ', 'br', '분쟁 쟁점을 세밀하게 검토합니다.'],
     career: [
       '단국대학교 법학과',
       '전남대학교 법학전문대학원 석사',
@@ -152,10 +167,10 @@ export const LAWYERS = [
   {
     image: '/image/lawyer-kim-sun.webp',
     name: '김선호 변호사',
-    bio: '사실관계와 자료를 바탕으로 현실적인 대응 방향을 함께 찾습니다.',
+    bio: ['사실관계와 자료를 바탕으로 현실적인 ', 'br', '대응 방향을 함께 찾습니다.'],
     career: ['충남대학교 법학전문대학원 졸업', '법무법인 여온 소속변호사'],
   },
-] as const;
+];
 
 export const FAQ_ITEMS = [
   {

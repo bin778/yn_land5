@@ -3,11 +3,12 @@
 
 import { useState, type KeyboardEvent } from 'react';
 import { assetPath } from '@/lib/asset-path';
+import { renderTextSegments, type TextContent } from '@/lib/renderTextSegments';
 
 type Lawyer = {
   image: string;
   name: string;
-  bio: string;
+  bio: TextContent;
   career: readonly string[];
 };
 
@@ -51,7 +52,7 @@ export function LawyerCard({ lawyer }: LawyerCardProps) {
       </div>
       <div className="lawyer-info">
         <div className="lawyer-name">{lawyer.name}</div>
-        <p>{lawyer.bio}</p>
+        <p>{renderTextSegments(lawyer.bio)}</p>
       </div>
     </article>
   );

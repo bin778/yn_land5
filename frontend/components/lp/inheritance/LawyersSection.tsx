@@ -22,7 +22,10 @@ export function LawyersSection() {
           ))}
         </div>
         <LawyersCarousel />
-        <div className="team-note">※ 실제 사건 담당 변호사는 사건의 성격과 일정 등에 따라 달라질 수 있습니다.</div>
+        <div className="team-note">
+          ※ 실제 사건 담당 변호사는 사건의 성격과 일정 등에 <br className="br-mobile" />
+          따라 달라질 수 있습니다.
+        </div>
       </div>
     </section>
   );

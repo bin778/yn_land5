@@ -1,4 +1,5 @@
 import { PROCESS_STEPS, SOLUTIONS, VALUE_CARDS } from '@/data/content';
+import { renderTextSegments } from '@/lib/renderTextSegments';
 import { ProcessStepCard, ProcessStepsCarousel } from './ProcessStepsCarousel';
 import { ValueCardContent, ValueCardsCarousel } from './ValueCardsCarousel';
 
@@ -31,7 +32,7 @@ export function ProcessSection() {
             {SOLUTIONS.map(solution => (
               <div key={solution.title} className="solution">
                 <b>{solution.title}</b>
-                <span>{solution.body}</span>
+                <span>{renderTextSegments(solution.body)}</span>
               </div>
             ))}
           </div>
@@ -56,7 +57,9 @@ export function ValueSection() {
           <div className="kicker">What Must Be Checked</div>
           <h2>권리를 지키려면</h2>
           <h2>4가지를 먼저 확인해야 합니다</h2>
-          <p className="lead">무엇을 주장할지보다 먼저, 어떤 재산과 사실이 내 권리에 영향을 주는지 확인합니다</p>
+          <p className="lead">
+            무엇을 주장할지보다 먼저, 어떤 재산과 사실이 <br className="br-mobile" />내 권리에 영향을 주는지 확인합니다
+          </p>
         </div>
         <div className="value-grid value-grid--static">
           {VALUE_CARDS.map(card => (

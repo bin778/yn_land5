@@ -1,4 +1,5 @@
 import { TIME_POINTS } from '@/data/content';
+import { renderTextSegments } from '@/lib/renderTextSegments';
 import { ProblemCarousel } from './ProblemCarousel';
 import { QuoteCarousel } from './QuoteCarousel';
 
@@ -77,7 +78,10 @@ export function TimeProtectionSection() {
 
         <div className="time-protection-grid">
           <div className="time-panel">
-            <h3>시간은 상속분쟁의 중요한 변수입니다</h3>
+            <h3>
+              시간은 상속분쟁의 <br className="br-mobile" />
+              중요한 변수입니다
+            </h3>
             <p>
               상속포기·한정승인처럼 법에서 정한 기간을 확인해야 하는 절차가 있고, 시간이 오래 지나면
               계좌내역·증여자료·가족 간 대화 등 사실관계를 확인할 자료를 확보하기 어려워질 수 있습니다.
@@ -88,7 +92,7 @@ export function TimeProtectionSection() {
             {TIME_POINTS.map(point => (
               <div key={point.title} className="time-point">
                 <b>{point.title}</b>
-                <span>{point.body}</span>
+                <span>{renderTextSegments(point.body)}</span>
               </div>
             ))}
           </div>
