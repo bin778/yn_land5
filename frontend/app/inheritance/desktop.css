@@ -40,12 +40,6 @@ header.scrolled {
   align-items: center;
   gap: 9px;
 }
-.phone-mini {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 800;
-  padding: 0 10px;
-}
 .nav .btn {
   min-height: 44px;
   padding: 0 18px;

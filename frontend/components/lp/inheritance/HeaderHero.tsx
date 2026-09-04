@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import { TrackedCta } from '@/components/common/TrackedCta';
 import { assetPath } from '@/lib/asset-path';
-import { PHONE_DISPLAY, PHONE_TEL, YEOON_HOME_URL } from '@/lib/constants';
+import { PHONE_TEL, YEOON_HOME_URL } from '@/lib/constants';
 
 const NAV_LINKS = [
   { href: '#story', label: '상속 이야기' },
@@ -38,9 +38,6 @@ export function Header() {
           ))}
         </nav>
         <div className="nav-actions">
-          <TrackedCta href={`tel:${PHONE_TEL}`} className="phone-mini" trackSource="header-phone">
-            {PHONE_DISPLAY}
-          </TrackedCta>
           <TrackedCta href={`tel:${PHONE_TEL}`} className="btn btn-primary" trackSource="header-phone-cta">
             📞 24시 전화 상담
           </TrackedCta>

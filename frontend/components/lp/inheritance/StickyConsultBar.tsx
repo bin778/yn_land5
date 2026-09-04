@@ -20,6 +20,7 @@ export function StickyConsultBar() {
     e.preventDefault();
 
     void submit(name, phone, {
+      content: '하단 고정폼 문의',
       situation: '하단 고정폼 문의',
       onSuccess: () => {
         setName('');

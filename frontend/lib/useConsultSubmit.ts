@@ -50,7 +50,11 @@ export function useConsultSubmit({ formLabel }: UseConsultSubmitOptions) {
     return undefined;
   }
 
-  async function submit(nameRaw: string, phoneRaw: string, options?: { situation?: string; onSuccess?: () => void }) {
+  async function submit(
+    nameRaw: string,
+    phoneRaw: string,
+    options?: { content?: string; situation?: string; onSuccess?: () => void },
+  ) {
     const name = normalizeName(nameRaw);
     const tel = normalizePhone(phoneRaw);
 
@@ -90,6 +94,7 @@ export function useConsultSubmit({ formLabel }: UseConsultSubmitOptions) {
     const result = await submitConsultLead({
       name,
       tel,
+      content: options?.content ?? '',
       situation: options?.situation ?? '',
       executeRecaptcha: execute,
       formLabel,

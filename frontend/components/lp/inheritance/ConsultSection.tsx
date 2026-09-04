@@ -23,8 +23,9 @@ export function ConsultSection() {
 
     const name = normalizeName(String(formData.get('name') ?? ''));
     const tel = normalizePhone(String(formData.get('phone') ?? ''));
-    const situation = composeSituation({
-      matter: String(formData.get('matter') ?? ''),
+    const matter = String(formData.get('matter') ?? '').trim();
+    const content = composeSituation({
+      matter,
       death: String(formData.get('death') ?? ''),
       relation: String(formData.get('relation') ?? ''),
       asset: String(formData.get('asset') ?? ''),
@@ -32,7 +33,8 @@ export function ConsultSection() {
     });
 
     void submit(name, tel, {
-      situation,
+      content,
+      situation: matter,
       onSuccess: () => {
         form.reset();
       },

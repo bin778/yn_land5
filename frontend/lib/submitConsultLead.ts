@@ -8,6 +8,9 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'https://www.yeoon.co.kr
 export type SubmitConsultLeadInput = {
   name: string;
   tel: string;
+  /** 관리자 문의 내용 → DB c_content */
+  content: string;
+  /** 사건 키워드(상담 분야) → DB c_option */
   situation: string;
   executeRecaptcha: (action: string) => Promise<string>;
   formLabel: string;
@@ -20,6 +23,7 @@ export type SubmitConsultLeadResult =
 export async function submitConsultLead({
   name,
   tel,
+  content,
   situation,
   executeRecaptcha,
   formLabel,
@@ -34,6 +38,7 @@ export async function submitConsultLead({
         name,
         tel,
         page: LP_SLUG,
+        content,
         situation,
         recaptcha_token: recaptchaToken,
         gclid: getStoredGclid(),
